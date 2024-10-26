@@ -68,16 +68,16 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             botonRol.addEventListener('click', function() {
                 switch (rol) {
                     case 'Administrativo':
-                        window.location.href = 'admin-dashboard.html'; // Redirigir a Administrativo
+                        window.location.href = 'admin.html'; // Redirigir a Administrativo
                         break;
                     case 'Gerente':
-                        window.location.href = 'gerente-dashboard.html'; // Redirigir a Gerente General
+                        window.location.href = 'gerente.html'; // Redirigir a Gerente General
                         break;
                     case 'Proveedora':
-                        window.location.href = 'proveedor-dashboard.html'; // Redirigir a Proveedora
+                        window.location.href = 'proveedor.html'; // Redirigir a Proveedora
                         break;
                     case 'Empleado':
-                        window.location.href = 'empleado-dashboard.html'; // Redirigir a Empleado
+                        window.location.href = 'empleado.html'; // Redirigir a Empleado
                         break;
                     default:
                         elementoError.textContent = 'Rol no reconocido.';
