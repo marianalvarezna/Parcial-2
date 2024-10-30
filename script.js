@@ -64,11 +64,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             const separador = document.createElement('div'); 
             separador.style.margin = '10px 0'; // Separar los botones visualmente
             
-            // Asignar evento al botón para redirigir según el rol
-            botonRol.addEventListener('click', function() {
+            //Asignar evento al botón para redirigir según el rol
+           botonRol.addEventListener('click', function() {
                 switch (rol) {
                     case 'Administrativo':
-                        window.location.href = 'admin.html'; // Redirigir a Administrativo
+                        window.location.href = 'menu.html' ; // Redirigir a Administrativo
                         break;
                     case 'Gerente':
                         window.location.href = 'gerente.html'; // Redirigir a Gerente General
