@@ -35,16 +35,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
                 body: `Bienvenido ${usuario.nombreUsuario}. Seleccione su rol.`,
                 icon: 'success-icon.png'  
             };
-
-            /*if (Notification.permission === 'granted') {
-                new Notification(titulo, opciones);
-            } else if (Notification.permission !== 'denied') {
-                Notification.requestPermission().then(permiso => {
-                    if (permiso === 'granted') {
-                        new Notification(titulo, opciones);
-                    }
-                });
-            }*/
         }
 
         // Verificar si el navegador soporta notificaciones
@@ -71,13 +61,13 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
                         window.location.href = 'menu.html' ; // Redirigir a Administrativo
                         break;
                     case 'Gerente':
-                        window.location.href = 'gerente.html'; // Redirigir a Gerente General
+                        window.location.href = 'menu.html'; // Redirigir a Gerente General
                         break;
                     case 'Proveedora':
-                        window.location.href = 'proveedor.html'; // Redirigir a Proveedora
+                        window.location.href = 'menu.html'; // Redirigir a Proveedora
                         break;
                     case 'Empleado':
-                        window.location.href = 'empleado.html'; // Redirigir a Empleado
+                        window.location.href = 'menu.html'; // Redirigir a Empleado
                         break;
                     default:
                         elementoError.textContent = 'Rol no reconocido.';
@@ -91,5 +81,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         // Mostrar el contenedor de roles y ocultar el formulario de inicio de sesión
         document.getElementById('roleSelection').style.display = 'block';
         document.getElementById('loginForm').style.display = 'none'; 
+
+        
     }
 });

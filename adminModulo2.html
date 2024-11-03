@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo</title>
+
+    <style>
+        body {
+        display: flex;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        }
+
+        .content {
+        flex-grow: 1;
+        padding: 20px;
+        }
+
+        .contenedor {
+            background-color: #d3b295;
+            padding: 20px;
+            width: 700px;
+            color: black;
+            border-radius: 20px;
+        }
+
+        .infoEmp {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .listaEmp {
+            background-color: #d3b295;
+            padding: 10px ;
+            text-decoration: none;
+            height: 140px;
+            color: black;
+            justify-content: center;
+            display: flex;
+            border-radius: 20px;
+            align-items: center;
+            /* justify-content: center;
+            display: flex;
+            align-items: center; */
+        }
+
+        .listaEmp ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .listaEmp ul li {
+            width: 250px;
+            padding: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Panel Administrativo</h1>
+        <div class="contenedor">
+            <p>Gastos de la Empresa</p>
+            <div class="infoEmp">
+                <div class="listaEmp">
+                    <ul>
+                        <li><strong>Servicios:</strong> $3.000.000</li>
+                        <li><strong>Sueldos:</strong> $2.500.000</li>
+                        <li><strong>Mantenimientos:</strong> $1.500.000</li>
+                    </ul>
+                </div>
+    
+                <div class="imgEmp">
+                    <img src="img/gastos.jpg" height="220px" width="300px" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modulos</title>
 </head>
 <style>
     body {
@@ -20,104 +20,34 @@
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     }
 
-    .menu a {
-        display: block;
+    .menu h2{
+        color: black;
         margin: 10px 0;
         padding: 10px;
         text-decoration: none;
+        text-align: center;
+    }
+
+    button[onclick] {
+        margin-top: 20px;
+        background-color: #a28165;
         color: white;
+        padding: 10px;
+        border: none;
         border-radius: 4px;
-        transition: background-color 0.3s;
+        cursor: pointer;
     }
 
-    .menu a:hover {
-        background-color: #d3b295;
-        color: black;
-    }
-
-    .content {
-        flex-grow: 1;
-        padding: 20px;
-
-    }
-
-    .contenedor {
-        background-color: #d3b295;
-        padding: 20px;
-        width: 700px;
-        color: black;
-        border-radius: 20px;
-
-    }
-
-    .infoEmp {
-        display: flex;
-        padding: 20px;
-        gap: 30px;
-        
-
-    }
-
-    .listaEmp {
-        background-color: #d3b295;
-        padding: 10px ;
-        text-decoration: none;
-        height: 140px;
-        color: black;
-        justify-content: center;
-        display: flex;
-        border-radius: 20px;
-
-        align-items: center;
-        /* justify-content: center;
-        display: flex;
-        align-items: center; */
-    }
-
-    .listaEmp ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-
-    .listaEmp ul li {
-        width: 250px;
-        padding: 8px;
-        background: #ecf0f1;
-        border-radius: 4px;
-        margin-bottom: 5px;
+    button[onclick]:hover {
+        background-color: #894e1a;
     }
 </style>
 
 </head>
 
 <body>
-
     <div class="menu" id="menu">
-
-    </div>
-
-    <div class="content">
-        <!-- <h1>¡Bienvenido!</h1>
-    <p>Contenido de la página según el menú seleccionado.</p> -->
-        <h1>Panel Administrativo</h1>
-        <div class="contenedor">
-            <h3></h3>
-            <p>Información sobre los empleados de la empresa</p>
-            <div class="infoEmp">
-
-                <div class="listaEmp">
-                    <ul>
-
-                        <li>Empleado 1: Juan Pérez</li>
-                        <li>Empleado 2: Esteban Navarro</li>
-                        <li>Empleado 3: Luis Martínez</li>
-                    </ul>
-                </div>
-                <div class="imgEmp">
-                    <img src="img/adminempleado.jpg" height="220px" width="300px" alt="">
-                </div>
-            </div>
-        </div>
+        <h2>Módulos disponibles</h2>
     </div>
 
     <script>
@@ -133,23 +63,52 @@
 
         if (miVariable === 'admin') {
             modulos = ['Módulo 1', 'Módulo 2'];
-        } else if (miVariable === 'editor') {
+        } else if (miVariable === 'gerente') {
             modulos = ['Módulo 3', 'Módulo 4'];
         } else {
             modulos = ['Módulo 1', 'Módulo 2', 'Módulo 3', 'Módulo 4'];
         }
 
         // Generar el menú dinámicamente
-        modulos.forEach((modulo, index) => {
+       /* modulos.forEach((modulo, index) => {
             const link = document.createElement('a');
             link.href = `#modulo${index + 1}`;
             link.textContent = modulo;
             menuElement.appendChild(link);
+        });  */ 
+        
+        modulos.forEach((modulo, index) => {
+            const boton = document.createElement('button');
+            boton.textContent = modulo;
+
+            // Asignar la redirección a cada botón según el módulo
+            boton.addEventListener('click', () => {
+                switch (modulo) {
+                    case 'Módulo 1':
+                        window.location.href = 'adminModulo1.html' ; // Redirigir a Administrativo
+                        break;
+                    case 'Módulo 2':
+                        window.location.href = 'adminModulo2.html'; // Redirigir a Gerente General
+                        break;
+                    case 'Módulo 3':
+                        window.location.href = 'adminModulo3.html'; // Redirigir a Proveedora
+                        break;
+                    case 'Módulo 4':
+                        window.location.href = 'menu.html'; // Redirigir a Empleado
+                        break;
+                    default:
+                        elementoError.textContent = 'Rol no reconocido.';
+                        break;
+                }
+            });
+
+            boton.style.margin = '10px'; // Añadir margen para separar los botones
+            menuElement.appendChild(boton);
         });
 
 
     </script>
 
-    <script src="script.js"></script>
+    <!--<script src="script.js"></script>-->
 
 </html>
