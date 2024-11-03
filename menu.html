@@ -61,8 +61,8 @@
         // Definir el contenido del menú según la variable
         let modulos;
 
-        if (miVariable === 'admin') {
-            modulos = ['Módulo 1', 'Módulo 2'];
+        if (miVariable === 'administrador') {
+            modulos = ['Módulo 1', 'Módulo 2', 'Módulo 3'];
         } else if (miVariable === 'gerente') {
             modulos = ['Módulo 3', 'Módulo 4'];
         } else {
@@ -85,19 +85,16 @@
             boton.addEventListener('click', () => {
                 switch (modulo) {
                     case 'Módulo 1':
-                        window.location.href = 'adminModulo1.html' ; // Redirigir a Administrativo
+                        window.location.href = 'adminModulo1.html'; 
                         break;
                     case 'Módulo 2':
-                        window.location.href = 'adminModulo2.html'; // Redirigir a Gerente General
+                        window.location.href = 'adminModulo2.html';
                         break;
                     case 'Módulo 3':
-                        window.location.href = 'adminModulo3.html'; // Redirigir a Proveedora
-                        break;
-                    case 'Módulo 4':
-                        window.location.href = 'menu.html'; // Redirigir a Empleado
+                        window.location.href = 'adminModulo3.html'; 
                         break;
                     default:
-                        elementoError.textContent = 'Rol no reconocido.';
+                        elementoError.textContent = 'Módulo no reconocido.';
                         break;
                 }
             });
