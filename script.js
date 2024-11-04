@@ -58,16 +58,16 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
            botonRol.addEventListener('click', function() {
                 switch (rol) {
                     case 'Administrativo':
-                        window.location.href = 'menu.html';
+                        window.location.href = 'menuAdm.html';
                         break;
                     case 'Gerente':
-                        window.location.href = 'menu.html';
+                        window.location.href = 'menuGrt.html';
                         break;
                     case 'Proveedora':
-                        window.location.href = 'menu.html';
+                        window.location.href = 'menuPvr.html';
                         break;
                     case 'Empleado':
-                        window.location.href = 'menu.html';
+                        window.location.href = 'menuEmp.html';
                         break;
                     default:
                         elementoError.textContent = 'Rol no reconocido.';

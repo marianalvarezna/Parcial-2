@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulos</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .menu {
+            width: 200px;
+            background-color: #a28165;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu h2 {
+            color: black;
+            margin: 10px 0;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 1px solid #ccc;
+        }
+
+        button[onclick] {
+            margin-top: 20px;
+            background-color: #a28165;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[onclick]:hover {
+            background-color: #894e1a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu" id="menu">
+        <h2>Módulos disponibles</h2>
+    </div>
+
+    <div class="content" id="content">
+        <h3>Seleccione un módulo para ver su contenido.</h3>
+    </div>
+
+    <script>
+        // Obtener la variable de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const miVariable = urlParams.get('variable') || 'default';
+
+        // Elemento donde se generará el menú
+        const menuElement = document.getElementById('menu');
+
+        // Definir el contenido del menú según la variable
+        let modulos;
+
+        if (miVariable === 'admin') {
+            modulos = ['Módulo 1', 'Módulo 2','Módulo 3'];
+        } else if (miVariable === 'gerente') {
+            modulos = ['Módulo 3'];
+        } else {
+            modulos = ['Módulo 1', 'Módulo 2', 'Módulo 3',];
+        }
+
+        // Generar el menú dinámicamente
+        modulos.forEach((modulo, index) => {
+            const boton = document.createElement('button');
+            boton.textContent = modulo;
+
+            // Asignar la redirección a cada botón según el módulo
+            boton.addEventListener('click', () => {
+                loadModule(index + 1); // Cargar el módulo correspondiente
+            });
+
+            boton.style.margin = '10px'; // Añadir margen para separar los botones
+            menuElement.appendChild(boton);
+        });
+
+        // Función para cargar el contenido del módulo
+        function loadModule(moduleNumber) {
+            const contentElement = document.getElementById('content');
+            contentElement.innerHTML = ''; // Limpiar contenido anterior
+
+            // Cargar el contenido según el módulo seleccionado
+            let moduleContent = '';
+            switch (moduleNumber) {
+                case 1:
+                    fetch('/Administrativos/adminModulo1.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            contentElement.innerHTML = data;
+                        })
+                        .catch(error => {
+                            contentElement.innerHTML = '<p>Error al cargar el módulo 1.</p>';
+                        });
+                    break;
+                case 2:
+                    fetch('/Administrativos/adminModulo2.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            contentElement.innerHTML = data;
+                        })
+                        .catch(error => {
+                            contentElement.innerHTML = '<p>Error al cargar el módulo 2.</p>';
+                        });
+                    break;
+                case 3:
+                    fetch('/Administrativos/adminModulo2.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            contentElement.innerHTML = data;
+                        })
+                        .catch(error => {
+                            contentElement.innerHTML = '<p>Error al cargar el módulo 3.</p>';
+                        });
+                    break;
+                default:
+                    contentElement.innerHTML = '<p>Módulo no reconocido.</p>';
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
