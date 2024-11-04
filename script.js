@@ -80,8 +80,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
         // Mostrar el contenedor de roles y ocultar el formulario de inicio de sesión
         document.getElementById('roleSelection').style.display = 'block';
-        document.getElementById('loginForm').style.display = 'none'; 
-
-        
+        document.getElementById('loginForm').style.display = 'none';     
     }
 });

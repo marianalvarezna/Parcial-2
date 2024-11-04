@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Empleado</title>
+
+    <style>
+        body {
+        display: flex;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        }
+
+        .content {
+        flex-grow: 1;
+        padding: 20px;
+        }
+
+        .contenedor {
+            background-color: #d3b295;
+            padding: 20px;
+            width: 700px;
+            color: black;
+            border-radius: 20px;
+        }
+
+        .infoEmp {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .listaEmp {
+            background-color: #d3b295;
+            padding: 10px ;
+            text-decoration: none;
+            height: 140px;
+            color: black;
+            justify-content: center;
+            display: flex;
+            border-radius: 20px;
+            align-items: center;
+        }
+
+        .listaEmp ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .listaEmp ul li {
+            width: 250px;
+            padding: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+
+        button[onclick] {
+            margin-top: 20px;
+            background-color: #a28165;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[onclick]:hover {
+            background-color: #894e1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Panel Empleado</h1>
+        <div class="contenedor">
+            <p>Actividades programadas</p>
+            <div class="infoEmp">
+                <div class="listaEmp">
+                    <ul>
+                        <li>Reunión de equipo a las 7:00 AM</li>
+                        <li>Revisar actividades a realizar (pelar, tostar, empacar...)</li>
+                        <li>Asistir a capacitación sobre manejo de herramientas</li>
+                    </ul>
+                </div>
+                
+                <div class="imgEmp">
+                    <img src="img/adminempleado.jpg" height="220px" width="300px" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
