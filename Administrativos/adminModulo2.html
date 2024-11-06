@@ -68,11 +68,15 @@
             <div class="infoEmp">
                 <div class="listaEmp">
                     <ul>
-                        <li><strong>Servicios:</strong> $3.000.000</li>
-                        <li><strong>Sueldos:</strong> $2.500.000</li>
-                        <li><strong>Mantenimientos:</strong> $1.500.000</li>
+                        <li id="num1"><strong>Servicios:</strong> $3.000.000</li>
+                        <li id="num2"><strong>Sueldos:</strong> $2.500.000</li>
+                        <li id="num3"><strong>Mantenimientos:</strong> $1.500.000</li>
                     </ul>
                 </div>
+
+                
+                <button type="btn" onclick="calcularSuma()">Total gastos</button>
+                <p id="resultado"></p>
     
                 <div class="imgEmp">
                     <img src="../img/gastos.jpg" height="220px" width="300px" alt="">
@@ -81,4 +85,17 @@
         </div>
     </div>
 </body>
+
+<script>
+    function calcularSuma(){
+        const n1 = document.getElementById('num1').value;
+        const n2 = document.getElementById('num2').value;
+        const n3 = document.getElementById('num3').value;
+        const suma = n1 + n2 + n3;
+        document.getElementById('resultado').innerText = `El total de los gastos es: ${suma}`;
+    }
+</script>
+
+
+
 </html>
