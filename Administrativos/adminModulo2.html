@@ -3,99 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Administrativo</title>
-
+    <title>Gastos de la Empresa</title>
     <style>
-        body {
-        display: flex;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        }
-
-        .content {
-        flex-grow: 1;
-        padding: 20px;
-        }
-
-        .contenedor {
-            background-color: #d3b295;
+        .panel {
+            background-color: #d2a97c;
             padding: 20px;
-            width: 700px;
-            color: black;
-            border-radius: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
         }
 
-        .infoEmp {
+        .input-group {
             display: flex;
-            padding: 20px;
-            gap: 30px;
-        }
-
-        .listaEmp {
-            background-color: #d3b295;
-            padding: 10px ;
-            text-decoration: none;
-            height: 140px;
-            color: black;
-            justify-content: center;
-            display: flex;
-            border-radius: 20px;
             align-items: center;
-            /* justify-content: center;
-            display: flex;
-            align-items: center; */
+            margin: 10px 0;
         }
 
-        .listaEmp ul {
-            list-style-type: none;
-            padding-left: 0;
+        .input-group label {
+            flex: 1;
+            font-weight: bold;
+            padding-right: 10px;
         }
 
-        .listaEmp ul li {
-            width: 250px;
-            padding: 8px;
-            background: #ecf0f1;
+        .input-group input {
+            flex: 2;
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .calculate-btn {
+            background-color: #a28165;
+            color: white;
+            padding: 10px;
+            border: none;
             border-radius: 4px;
-            margin-bottom: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .calculate-btn:hover {
+            background-color: #894e1a;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Panel Administrativo</h1>
-        <div class="contenedor">
-            <p>Gastos de la Empresa</p>
-            <div class="infoEmp">
-                <div class="listaEmp">
-                    <ul>
-                        <li id="num1"><strong>Servicios:</strong> $3.000.000</li>
-                        <li id="num2"><strong>Sueldos:</strong> $2.500.000</li>
-                        <li id="num3"><strong>Mantenimientos:</strong> $1.500.000</li>
-                    </ul>
-                </div>
 
-                
-                <button type="btn" onclick="calcularSuma()">Total gastos</button>
-                <p id="resultado"></p>
-    
-                <div class="imgEmp">
-                    <img src="../img/gastos.jpg" height="220px" width="300px" alt="">
-                </div>
-            </div>
-        </div>
+<div class="panel">
+    <h3>Gastos de la Empresa</h3>
+
+    <div class="input-group">
+        <label for="servicios">Servicios:</label>
+        <input type="number" id="servicios" placeholder="Ingrese monto en pesos">
     </div>
-</body>
+
+    <div class="input-group">
+        <label for="sueldos">Sueldos:</label>
+        <input type="number" id="sueldos" placeholder="Ingrese monto en pesos">
+    </div>
+
+    <div class="input-group">
+        <label for="mantenimientos">Mantenimientos:</label>
+        <input type="number" id="mantenimientos" placeholder="Ingrese monto en pesos">
+    </div>
+
+    <button class="calculate-btn" onclick="calcularSuma()">Calcular</button>
+
+    <div class="result" id="resultado"></div>
+</div>
 
 <script>
-    function calcularSuma(){
-        const n1 = document.getElementById('num1').value;
-        const n2 = document.getElementById('num2').value;
-        const n3 = document.getElementById('num3').value;
-        const suma = n1 + n2 + n3;
-        document.getElementById('resultado').innerText = `El total de los gastos es: ${suma}`;
+    function calcularSuma() {
+        const servicios = parseFloat(document.getElementById('servicios').value) || 0;
+        const sueldos = parseFloat(document.getElementById('sueldos').value) || 0;
+        const mantenimientos = parseFloat(document.getElementById('mantenimientos').value) || 0;
+
+        const total = servicios + sueldos + mantenimientos;
+        document.getElementById('resultado').textContent = `Total de gastos: $ ${total.toLocaleString()}`;
     }
 </script>
 
-
-
+</body>
 </html>

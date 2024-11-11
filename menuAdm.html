@@ -135,6 +135,14 @@
                     break;
             }
         }
+
+        function calcularSuma() {
+            const servicios = parseFloat(document.getElementByI('servicios').value) || 0;
+            const sueldos = parseFloat(document.getElementById('sueldos').value) || 0;
+            const mantenimientos = parseFloat(document.getElementById('mantenimientos').value) || 0;
+            const total = servicios + sueldos + mantenimientos;
+            document.getElementById('resultado').textContent = `Total de gastos: $ ${total.toLocaleString()}`;
+        }
     </script>
 </body>
 
